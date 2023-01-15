@@ -1,11 +1,11 @@
 import './App.css';
-import Navbar from './routes/AuthenticatedLayout/Navbar';
+import Routes from './routes'
 
 function App() {
   return (
-    <>
-     <Navbar/>
-    </>
+      <div className="App">
+        <Routes/>
+      </div>
   );
 }
 
