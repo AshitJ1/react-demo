@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { routes } from '../../utils/constants/routes';
 
 export default function Navbar() {
@@ -13,19 +13,19 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to={routes.Crud}>Home</Link>
+                            <NavLink className="nav-link" aria-current="page" exact to={routes.Crud}>Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">Utilites</a>
+                            <NavLink className="nav-link" exact to={routes.Utilities}>Utilites</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">Mode</a>
+                            <NavLink className="nav-link" exact to={routes.Mode}>Mode</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">CRUD</a>
+                            <NavLink className="nav-link" exact to={routes.Crud}>CRUD</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">Editor</a>
+                            <NavLink className="nav-link" exact to={routes.Editor}>Editor</NavLink>
                         </li>
                     </ul>
                     <span className="navbar-text">
