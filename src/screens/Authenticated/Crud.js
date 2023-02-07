@@ -11,14 +11,24 @@ export default function Crud() {
     }, [])
 
     const loadUsers = async () => {
-        const result = await axios.get(URLS.users);
-        setUsers(result.data.reverse());
+        try {
+            const result = await axios.get(URLS.users);
+            setUsers(result.data.reverse());
+        } catch (err) {
+            console.warn(err);
+        }
+
     };
 
     const deleteUser = async id => {
-        await axios.delete(URLS.deleteUserById(id));
-        loadUsers();
-      };
+        try {
+            await axios.delete(URLS.deleteUserById(id));
+            loadUsers();
+        } catch (err) {
+            console.warn(err);
+        }
+
+    };
 
     return (
         <div>
@@ -48,7 +58,7 @@ export default function Crud() {
                                             <td>
                                                 <button type="button" class="btn btn-primary m-2"><i class="fa fa-eye"></i></button>
                                                 <button type="button" class="btn btn-warning m-2"><i class='fas fa-edit'></i></button>
-                                                <button type="button" class="btn btn-danger m-2"  onClick={() => deleteUser(user.id)}><i class="fa fa-trash"></i></button>                                            </td>
+                                                <button type="button" class="btn btn-danger m-2" onClick={() => deleteUser(user.id)}><i class="fa fa-trash"></i></button>                                            </td>
                                         </tr>
                                     ))}
                                 </tbody>
